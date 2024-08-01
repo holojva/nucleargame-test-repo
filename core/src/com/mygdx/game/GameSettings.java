@@ -3,7 +3,7 @@ package com.mygdx.game;
 public class GameSettings {
     public static final int SCREEN_WIDTH = 1920;
     public static final int SCREEN_HEIGHT = 1080;
-    public static final String SKIN_PATH = "nuke13.1/nuke13.1/nuclear.json";
+    public static final String SKIN_PATH = "nuke14/nuclear.json";
     public static float schemeCoolDown = 0.3f;
 
     // TextResources:

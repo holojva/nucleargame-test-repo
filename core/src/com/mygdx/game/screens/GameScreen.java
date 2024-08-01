@@ -104,6 +104,7 @@ public class GameScreen extends BaseScreen{
     ClickListener tutorialStopClickedListener = new ClickListener() {
         @Override
         public void clicked(InputEvent event, float x, float y) {
+            nuclearGame.setScreen(nuclearGame.tutorialScreen);
             endGame();
         }
     };

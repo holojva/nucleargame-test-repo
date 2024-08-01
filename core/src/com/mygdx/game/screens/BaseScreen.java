@@ -7,7 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.ScreenUtils;
 import com.mygdx.game.NuclearGame;
 
-public class BaseScreen implements Screen {
+public abstract class BaseScreen implements Screen {
     public Stage stage;
     public final NuclearGame nuclearGame;
 

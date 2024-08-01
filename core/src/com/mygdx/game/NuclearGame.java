@@ -27,6 +27,7 @@ public class NuclearGame extends Game {
 	public PauseScreen pauseScreen;
 	public MenuScreen menuScreen;
 	public LevelsScreen levelsScreen;
+	public TutorialScreen tutorialScreen;
 	public SettingsScreen settingsScreen;
 	public InfoScreen infoScreen;
 	public GameScreen gameScreen;
@@ -56,8 +57,7 @@ public class NuclearGame extends Game {
 		menuScreen = new MenuScreen(this);
 		levelsScreen = new LevelsScreen(this);
 		settingsScreen = new SettingsScreen(this);
-		//infoScreen = new InfoScreen(this, TextInfoScreenOne, "bilibino-npp");
-		//infoScreen12 = new InfoScreen12(this, TextInfoScreenOneFinal, "bilibino-reactor");
+		tutorialScreen = new TutorialScreen(this);
 		gameScreen = new GameScreen(this);
 		sparklingWaterScreen = new SparklingWaterScreen(this);
 		winScreen = new WinScreen(this);

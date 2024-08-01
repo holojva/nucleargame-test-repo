@@ -16,7 +16,7 @@ public class PauseScreenUi extends UiComponent{
     public Button level;
     public Label exitLabel;
     public PauseScreenUi(Skin skin) {
-        Image image = new Image(new Texture("nuke13.1/nuke13.1/pausescreen.jpeg"));
+        Image image = new Image(skin, "blackout");
         retLabel = new Label("return", skin, "molot-font", Color.BLACK);
         exitLabel = new Label("exit", skin, "molot-font", Color.BLACK);
         levelsLabel = new Label("levels", skin, "molot-font", Color.BLACK);
