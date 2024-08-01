@@ -1,10 +1,9 @@
 package com.mygdx.game.screens;
-import com.badlogic.gdx.Gdx;
 import static com.mygdx.game.GameSettings.TextInfoScreenOne;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.mygdx.game.AudioManager;
+import com.mygdx.game.managers.AudioManager;
 import com.mygdx.game.GameSettings;
 import com.mygdx.game.NuclearGame;
 import com.mygdx.game.managers.MemoryManager;
@@ -56,7 +55,7 @@ public class LevelsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.infoScreen);
-            if (MemoryManager.loadIsMusicOn()) AudioManager.playMusic(AudioManager.infoScreenBackgroundMusic);
+            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.infoScreenBackgroundMusic.play();
             nuclearGame.gameScreen.setCurrentLevel(1);
             infoScreen = new InfoScreen(nuclearGame);
             infoScreen12 = new InfoScreen12(nuclearGame, textInfoFinal(), pictureInfoFinal());
@@ -67,7 +66,7 @@ public class LevelsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.infoScreen);
-            if (MemoryManager.loadIsMusicOn()) AudioManager.playMusic(AudioManager.infoScreenBackgroundMusic);
+            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.infoScreenBackgroundMusic.play();
 
             if (MemoryManager.loadPassedLevel() >= 2) {
                 nuclearGame.gameScreen.setCurrentLevel(3);
@@ -81,7 +80,7 @@ public class LevelsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.infoScreen);
-            if (MemoryManager.loadIsMusicOn()) AudioManager.playMusic(AudioManager.infoScreenBackgroundMusic);
+            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.infoScreenBackgroundMusic.play();
             if (MemoryManager.loadPassedLevel() >= 4) {
                 nuclearGame.gameScreen.setCurrentLevel(5);
                 infoScreen = new InfoScreen(nuclearGame);
@@ -94,7 +93,7 @@ public class LevelsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.infoScreen);
-            if (MemoryManager.loadIsMusicOn()) AudioManager.playMusic(AudioManager.infoScreenBackgroundMusic);
+            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.infoScreenBackgroundMusic.play();
             if (MemoryManager.loadPassedLevel() >= 6) {
                 nuclearGame.gameScreen.setCurrentLevel(7);
                 infoScreen = new InfoScreen(nuclearGame);

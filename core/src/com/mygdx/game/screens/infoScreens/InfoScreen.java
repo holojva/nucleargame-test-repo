@@ -2,8 +2,7 @@ package com.mygdx.game.screens.infoScreens;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.mygdx.game.AudioManager;
-import com.mygdx.game.GameSettings;
+import com.mygdx.game.managers.AudioManager;
 import com.mygdx.game.NuclearGame;
 import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.screens.BaseScreen;
@@ -25,7 +24,7 @@ public class InfoScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.gameScreen);
-            if (MemoryManager.loadIsMusicOn()) AudioManager.playMusic(AudioManager.gameScreenBackgroundMusic);
+            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.gameScreenBackgroundMusic.play();
         }
     };
 }

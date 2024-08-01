@@ -2,8 +2,8 @@ package com.mygdx.game.screens;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.mygdx.game.AudioManager;
 import com.mygdx.game.NuclearGame;
+import com.mygdx.game.managers.AudioManager;
 import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.ui.SettingScreenUi;
 
@@ -34,6 +34,7 @@ public class SettingsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             MemoryManager.saveMusicSettings(!MemoryManager.loadIsMusicOn());
+            nuclearGame.audioManager.updateMusicFlag();
         }
     };
 
@@ -41,6 +42,7 @@ public class SettingsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             MemoryManager.saveSoundSettings(!MemoryManager.loadIsSoundOn());
+            nuclearGame.audioManager.updateSoundFlag();
         }
     };
 

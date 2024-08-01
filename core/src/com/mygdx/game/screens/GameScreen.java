@@ -1,25 +1,18 @@
 package com.mygdx.game.screens;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.ScreenUtils;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.mygdx.game.AudioManager;
+import com.mygdx.game.managers.AudioManager;
 import com.mygdx.game.GameSettings;
 import com.mygdx.game.NuclearGame;
 import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.ui.GameScreenUi;
 import com.mygdx.game.ui.components.ChartValues;
-import com.mygdx.game.ui.components.Switch;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.OptionalDouble;
 
 public class GameScreen extends BaseScreen{
 
@@ -120,7 +113,7 @@ public class GameScreen extends BaseScreen{
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.sparklingWaterScreen);
-            if (MemoryManager.loadIsMusicOn()) AudioManager.playMusic(AudioManager.coffeeScreenBackgroundMusic);
+            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.coffeeScreenBackgroundMusic.play();
         }
     };
 

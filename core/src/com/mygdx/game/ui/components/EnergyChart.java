@@ -53,7 +53,7 @@ public class EnergyChart extends Actor {
     }
 
     public void setValuesList(ArrayList<ChartValues> valuesList, boolean updateBoundaryValues) {
-        this.valuesList = new ArrayList<>(valuesList);
+        this.valuesList =  new ArrayList<>(valuesList);
         if (updateBoundaryValues) {
             maxValue = Collections.max(valuesList).value;
             minValue = Collections.min(valuesList).value;
