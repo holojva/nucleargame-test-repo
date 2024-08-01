@@ -11,6 +11,7 @@ import com.badlogic.gdx.scenes.scene2d.actions.MoveToAction;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.mygdx.game.managers.MemoryManager;
 
 import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 
@@ -31,6 +32,7 @@ public class Switch extends Actor {
 
         setSize(400, 200);
         setPosition(20, 20);
+        if (MemoryManager.loadPassedLevel() < 3) setPosition(140, 20);
         setState((byte) 0);
 
         addListener(new SwitchInputListener());

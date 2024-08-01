@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.*;
 import com.badlogic.gdx.utils.Align;
 import com.mygdx.game.GameSettings;
+import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.ui.components.*;
 
 public class GameScreenUi extends UiComponent{
@@ -87,6 +88,7 @@ public class GameScreenUi extends UiComponent{
         closeToFail.setSize(650,44);
         root.addActor(generatedPower);
         generatedPower.setPosition(1242, 700);
+        if (MemoryManager.loadPassedLevel() < 3) generatedPower.setPosition(1242, 640);
         generatedPower.setSize(650, 44);
         root.addActor(batteryCharge);
         batteryCharge.setPosition(1242, 585);
@@ -95,7 +97,7 @@ public class GameScreenUi extends UiComponent{
         fatigue.setPosition(1242, 467);
         fatigue.setSize(650, 44);
         root.addActor(speedControl);
-        speedControl.setPosition(935, 20);
+        speedControl.setPosition(860, 20);
         speedControl.setSize(180, 180);
         root.addActor(cheerUp);
         cheerUp.setPosition(1230, 310);
@@ -129,6 +131,7 @@ public class GameScreenUi extends UiComponent{
         closeToFailLabel.setPosition(1242, 860);
         root.addActor(generatedPowerLabel);
         generatedPowerLabel.setPosition(1242, 745);
+        if (MemoryManager.loadPassedLevel() < 3) generatedPowerLabel.setPosition(1242, 685);
         root.addActor(batteryChargeLabel);
         batteryChargeLabel.setPosition(1242, 630);
         root.addActor(fatigueLabel);
