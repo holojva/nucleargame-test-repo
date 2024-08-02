@@ -4,7 +4,6 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Touchable;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.mygdx.game.managers.AudioManager;
 import com.mygdx.game.GameSettings;
 import com.mygdx.game.NuclearGame;
 import com.mygdx.game.managers.MemoryManager;
@@ -37,6 +36,11 @@ public class GameScreen extends BaseScreen{
             ui.batteryCharge.setVisible(false);
             ui.battery.setVisible(false);
             ui.batteryChargeLabel.setVisible(false);
+        }
+        if (nuclearGame.audioManager.isMusicOn) {
+            nuclearGame.audioManager.infoMusic.stop();
+            nuclearGame.audioManager.gameMusic.play();
+            nuclearGame.audioManager.gameMusic.setLooping(true);
         }
     }
 
@@ -113,7 +117,6 @@ public class GameScreen extends BaseScreen{
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.sparklingWaterScreen);
-            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.coffeeScreenBackgroundMusic.play();
         }
     };
 
@@ -261,7 +264,7 @@ public class GameScreen extends BaseScreen{
     }
 
     private void passiveFatigue() {
-        long fatigueStartTime = 90000L;
+        long fatigueStartTime = 30L;
         if (TimeUtils.millis() - startTime >= fatigueStartTime) {
             ui.fatigue.increaseValue(0.03f);
         }

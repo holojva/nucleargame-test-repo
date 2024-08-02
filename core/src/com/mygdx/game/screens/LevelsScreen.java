@@ -3,7 +3,6 @@ import static com.mygdx.game.GameSettings.TextInfoScreenOne;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.mygdx.game.managers.AudioManager;
 import com.mygdx.game.GameSettings;
 import com.mygdx.game.NuclearGame;
 import com.mygdx.game.managers.MemoryManager;
@@ -38,6 +37,7 @@ public class LevelsScreen extends BaseScreen {
         ui.level4.addListener(levelFourButtonClickedListener);
     }
 
+
     @Override
     public void show() {
         super.show();
@@ -55,7 +55,6 @@ public class LevelsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.infoScreen);
-            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.infoScreenBackgroundMusic.play();
             nuclearGame.gameScreen.setCurrentLevel(1);
             infoScreen = new InfoScreen(nuclearGame);
             infoScreen12 = new InfoScreen12(nuclearGame, textInfoFinal(), pictureInfoFinal());
@@ -66,7 +65,6 @@ public class LevelsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.infoScreen);
-            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.infoScreenBackgroundMusic.play();
 
             if (MemoryManager.loadPassedLevel() >= 2) {
                 nuclearGame.gameScreen.setCurrentLevel(3);
@@ -80,7 +78,6 @@ public class LevelsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.infoScreen);
-            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.infoScreenBackgroundMusic.play();
             if (MemoryManager.loadPassedLevel() >= 4) {
                 nuclearGame.gameScreen.setCurrentLevel(5);
                 infoScreen = new InfoScreen(nuclearGame);
@@ -93,7 +90,6 @@ public class LevelsScreen extends BaseScreen {
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.infoScreen);
-            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.infoScreenBackgroundMusic.play();
             if (MemoryManager.loadPassedLevel() >= 6) {
                 nuclearGame.gameScreen.setCurrentLevel(7);
                 infoScreen = new InfoScreen(nuclearGame);
@@ -116,25 +112,7 @@ public class LevelsScreen extends BaseScreen {
                 ui.updateNpp2(true);
         }
     }
-    public String textInfo(){
-        System.out.println(nuclearGame.gameScreen.getCurrentLevel());
-        switch (nuclearGame.gameScreen.getCurrentLevel()){
-            case 2:
-                System.out.println("loadPassedLevel: 1");
-                return GameSettings.TextInfoScreenOne;
-            case 4:
-                System.out.println("loadPassedLevel: 2");
-                return GameSettings.TextInfoScreenTwo;
-            case 6:
-                System.out.println("loadPassedLevel: 3");
-                return GameSettings.TextInfoScreenThree;
-            case 8:
-                System.out.println("loadPassedLevel: 4");
-                return GameSettings.TextInfoScreenFour;
-            default:
-                return GameSettings.Err;
-        }
-    }
+
     public String textInfoFinal(){
         System.out.println(nuclearGame.gameScreen.getCurrentLevel());
         switch (nuclearGame.gameScreen.getCurrentLevel()){
@@ -156,19 +134,7 @@ public class LevelsScreen extends BaseScreen {
         }
     }
 
-    public String pictureInfo(){
-        switch (nuclearGame.gameScreen.getCurrentLevel()){
-            case 1:
-                return "obninsk-npp";
-            case 2:
-                return "beloyarsk-npp";
-            case 3:
-                return "bilibino-npp";
 
-            default:
-                return "chernobyl-npp";
-        }
-    }
     public String pictureInfoFinal(){
         switch (nuclearGame.gameScreen.getCurrentLevel()){
             case 1:

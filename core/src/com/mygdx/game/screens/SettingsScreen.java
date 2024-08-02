@@ -3,7 +3,6 @@ package com.mygdx.game.screens;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.NuclearGame;
-import com.mygdx.game.managers.AudioManager;
 import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.ui.SettingScreenUi;
 
@@ -22,6 +21,8 @@ public class SettingsScreen extends BaseScreen {
         ui.sound.addListener(soundButtonClickedListener);
         ui.sound1.addListener(soundButtonClickedListener);
         ui.soundLabel.addListener(soundButtonClickedListener);
+        MemoryManager.saveMusicSettings(true);
+        nuclearGame.audioManager.updateMusicFlag();
     }
 
     ClickListener exitButtonClickedListener = new ClickListener() {
@@ -35,16 +36,28 @@ public class SettingsScreen extends BaseScreen {
         public void clicked(InputEvent event, float x, float y) {
             MemoryManager.saveMusicSettings(!MemoryManager.loadIsMusicOn());
             nuclearGame.audioManager.updateMusicFlag();
+            System.out.println(MemoryManager.loadIsMusicOn());
         }
     };
 
     ClickListener soundButtonClickedListener = new ClickListener() {
         @Override
         public void clicked(InputEvent event, float x, float y) {
-            MemoryManager.saveSoundSettings(!MemoryManager.loadIsSoundOn());
-            nuclearGame.audioManager.updateSoundFlag();
+
         }
     };
+
+    @Override
+    public void render(float delta) {
+        super.render(delta);
+        if (!nuclearGame.audioManager.isMusicOn) {
+            nuclearGame.audioManager.menuMusic.stop();
+        } else {
+            nuclearGame.audioManager.menuMusic.play();
+        }
+    }
+
+
 
 
 }

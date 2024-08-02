@@ -3,43 +3,31 @@ package com.mygdx.game.managers;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
+import com.mygdx.game.GameSettings;
 
 public class AudioManager {
-    public  boolean isMusicOn;
+
     public boolean isSoundOn;
-    public  Music coffeeScreenBackgroundMusic;
-    public  Sound coffeeScreenBadWinSound = Gdx.audio.newSound(Gdx.files.internal("music\\CoffeeScreenBadWinSound.mp3"));
-    public  Sound coffeeScreenMediumWinSound = Gdx.audio.newSound(Gdx.files.internal("music\\CoffeeScreenMediumWinSound.mp3"));
-    public  Sound coffeeScreenPerfectWinSound = Gdx.audio.newSound(Gdx.files.internal("music\\CoffeeScreenPerfectWinSound.mp3"));
-    public  Music coffeeScreenWaterPumpingMusic;
-    public  Music fireAlarm;
-    public  Music finalScreenBackgroundMusic;
-    public  Music gameScreenBackgroundMusic;
-    public  Music infoScreenBackgroundMusic;
-    public  Music levelScreenBackgroundMusic;
-    public  Music loseScreenBackgroundMusic;
-    public  Music settingsScreenBackgroundMusic;
-    public Music startScreenBackgroundMusic;
-    public  Music tutorialScreenBackgroundMusic;
-    public  Music winScreenBackgroundMusic;
-    public  Sound secretSound = Gdx.audio.newSound(Gdx.files.internal("music\\CoffeeScreenWaterPumpingMusic.mp3"));
+    public boolean isMusicOn;
+    public Music menuMusic;
+    public Music infoMusic;
+    public Music gameMusic;
+
+    public Music sparklingWaterMusic;
 
     public AudioManager() {
-        coffeeScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/CoffeeScreenBackgroundMusic.mp3"));
-        coffeeScreenWaterPumpingMusic = Gdx.audio.newMusic(Gdx.files.internal("music/CoffeeScreenWaterPumpingMusic.mp3"));
-        fireAlarm = Gdx.audio.newMusic(Gdx.files.internal("music/FireAlarm.mp3"));
-        finalScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/FinalScreenBackgroundMusic.mp3"));
-        gameScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/GameScreenBackgroundMusic.mp3"));
-        infoScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/InfoScreenBackgroundMusic.mp3"));
-        levelScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/LevelScreenBackgroundMusic.mp3"));
-        loseScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/LoseScreenBackgroundMusic.mp3"));
-        settingsScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/SettingsScreenBackgroundMusic.mp3"));
-        startScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/StartScreenBackgroundMusic.mp3"));
-        tutorialScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/TutorialScreenBackgroundMusic.mp3"));
-        winScreenBackgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("music/WinScreenBackgroundMusic.mp3"));
+        isMusicOn = true;
+        isSoundOn = true;
+        menuMusic = Gdx.audio.newMusic(Gdx.files.internal(GameSettings.MENU_MUSIC));
+        infoMusic = Gdx.audio.newMusic(Gdx.files.internal(GameSettings.INFO_MUSIC));
+        gameMusic = Gdx.audio.newMusic(Gdx.files.internal(GameSettings.GAME_MUSIC));
+        sparklingWaterMusic = Gdx.audio.newMusic(Gdx.files.internal(GameSettings.SPARKLING_WATER_MUSIC));
 
-        updateSoundFlag();
+        menuMusic.setVolume(0.2f);
+        menuMusic.setLooping(true);
+
         updateMusicFlag();
+        updateSoundFlag();
     }
 
     public void updateSoundFlag() {
@@ -48,12 +36,5 @@ public class AudioManager {
 
     public void updateMusicFlag() {
         isMusicOn = MemoryManager.loadIsMusicOn();
-
     }
 }
-
-
-
-
-
-

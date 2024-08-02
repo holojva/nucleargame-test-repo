@@ -26,6 +26,7 @@ public class MemoryManager {
         return preferences.getBoolean("isMusicOn", true);
     }
 
+
     public static int loadPassedLevel() {
         return preferences.getInteger("passedLevel", 0);
     }
@@ -34,5 +35,6 @@ public class MemoryManager {
         preferences.putInteger("passedLevel", level);
         preferences.flush();
     }
+
 
 }

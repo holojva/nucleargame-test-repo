@@ -5,7 +5,6 @@ import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.badlogic.gdx.utils.TimeUtils;
-import com.mygdx.game.managers.AudioManager;
 import com.mygdx.game.NuclearGame;
 import com.mygdx.game.managers.MemoryManager;
 
@@ -30,6 +29,11 @@ public class SparklingWaterScreen extends BaseScreen {
         super.show();
         waterLevel = 0;
         startTime = TimeUtils.millis();
+        if (nuclearGame.audioManager.isMusicOn) {
+            nuclearGame.audioManager.gameMusic.stop();
+            nuclearGame.audioManager.sparklingWaterMusic.play();
+            nuclearGame.audioManager.sparklingWaterMusic.setLooping(true);
+        }
     }
 
     @Override
@@ -58,7 +62,14 @@ public class SparklingWaterScreen extends BaseScreen {
                     nuclearGame.gameScreen.ui.fatigue.getCurrentValue() * decreasePart
             );
             nuclearGame.setScreen(nuclearGame.gameScreen);
-            if (MemoryManager.loadIsMusicOn()) nuclearGame.audioManager.gameScreenBackgroundMusic.play();
+        }
+    };
+
+    @Override
+    public void hide() {
+        if (nuclearGame.audioManager.isMusicOn) {
+            nuclearGame.audioManager.sparklingWaterMusic.stop();
+            nuclearGame.audioManager.gameMusic.play();
         }
     };
 

@@ -6,6 +6,14 @@ public class GameSettings {
     public static final String SKIN_PATH = "nuke14/nuclear.json";
     public static float schemeCoolDown = 0.3f;
 
+    public static String MENU_MUSIC = "music/LevelScreenBackgroundMusic.mp3";
+
+    public static String INFO_MUSIC = "music/InfoScreenBackgroundMusic.mp3";
+
+    public static String GAME_MUSIC = "music/GameScreenBackgroundMusic.mp3";
+
+    public static String SPARKLING_WATER_MUSIC = "music/CoffeeScreenBackgroundMusic.mp3";
+
     // TextResources:
     public static final String TextInfoScreenOne = "On June 26, 1954, under the leadership of Igor Vasilyevich \n"
             + "Kurchatov, the world's first nuclear power plant with a 5 MW \n"

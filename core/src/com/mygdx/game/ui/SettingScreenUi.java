@@ -71,11 +71,4 @@ public class SettingScreenUi extends UiComponent {
         exitLabel.setSize(385, 60);
     }
 
-    public void updateSwitchMus(boolean comp1) {
-        this.sound1.setChecked(comp1);
-    }
-
-    public void updateSwitchSound(boolean comp) {
-        this.music1.setChecked(comp);
-    }
 }

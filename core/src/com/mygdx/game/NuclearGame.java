@@ -3,9 +3,6 @@ package com.mygdx.game;
 import static com.mygdx.game.GameSettings.SCREEN_HEIGHT;
 import static com.mygdx.game.GameSettings.SCREEN_WIDTH;
 import static com.mygdx.game.GameSettings.SKIN_PATH;
-import static com.mygdx.game.GameSettings.TextInfoScreenOne;
-import static com.mygdx.game.GameSettings.TextInfoScreenOneFinal;
-import static com.mygdx.game.managers.MemoryManager.loadPassedLevel;
 
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
@@ -19,7 +16,6 @@ import com.mygdx.game.managers.MemoryManager;
 import com.mygdx.game.screens.*;
 import com.mygdx.game.screens.infoScreens.InfoScreen;
 import com.mygdx.game.screens.infoScreens.InfoScreen12;
-import com.mygdx.game.ui.WinScreenUi;
 
 public class NuclearGame extends Game {
 	public Skin skin;
@@ -32,12 +28,13 @@ public class NuclearGame extends Game {
 	public SettingsScreen settingsScreen;
 	public InfoScreen infoScreen;
 	public GameScreen gameScreen;
-	public InfoScreen12 infoScreen12;
 	public WinScreen winScreen;
 	public LoseScreen loseScreen;
 	public SparklingWaterScreen sparklingWaterScreen;
     public MemoryManager memoryManager;
+
 	public AudioManager audioManager;
+
 
 	@Override
 	public void create () {
