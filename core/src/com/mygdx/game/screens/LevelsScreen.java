@@ -42,6 +42,10 @@ public class LevelsScreen extends BaseScreen {
     public void show() {
         super.show();
         updateLevelsButton();
+        if (nuclearGame.audioManager.isMusicOn) {
+            nuclearGame.audioManager.gameMusic.stop();
+            nuclearGame.audioManager.menuMusic.play();
+        }
 
     }
 

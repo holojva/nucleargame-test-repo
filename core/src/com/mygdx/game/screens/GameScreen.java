@@ -24,8 +24,8 @@ public class GameScreen extends BaseScreen{
     float accumulator;
     ArrayList<ChartValues> listOfValues;
 
-    ArrayList <Float> xValues;
-    ArrayList <Float> yValues;
+    public ArrayList <Float> xValues;
+    public ArrayList <Float> yValues;
     float lastTemperature = 0;
 
     @Override
@@ -262,6 +262,8 @@ public class GameScreen extends BaseScreen{
         }
 
     }
+
+
 
     private void passiveFatigue() {
         long fatigueStartTime = 30L;

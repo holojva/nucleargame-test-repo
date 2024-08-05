@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 public class Potentiometer extends Actor {
 
     Image baseImage;
-    Image spinnerImage;
+    public Image spinnerImage;
 
     public double a = Math.PI / 3.7;
 
@@ -55,6 +55,7 @@ public class Potentiometer extends Actor {
     public float getValue() {
         return (float) (1 - (Math.toRadians(spinnerImage.getRotation()) - a) / (Math.PI * 2 - a * 2));
     }
+
 
     private class PotentiometerInputLister extends InputListener {
 

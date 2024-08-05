@@ -6,6 +6,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.mygdx.game.NuclearGame;
 import com.mygdx.game.ui.GameScreenUi;
 import com.mygdx.game.ui.PauseScreenUi;
+import com.mygdx.game.ui.components.Potentiometer;
 
 public class PauseScreen extends BaseScreen{
     PauseScreenUi ui;
@@ -27,6 +28,16 @@ public class PauseScreen extends BaseScreen{
         @Override
         public void clicked(InputEvent event, float x, float y) {
             nuclearGame.setScreen(nuclearGame.levelsScreen);
+            nuclearGame.gameScreen.ui.kernels.setValue(0f);
+            nuclearGame.gameScreen.ui.speedControl.spinnerImage.setRotation(180);
+            nuclearGame.gameScreen.ui.generatedPower.setCurrentValue(0);
+            nuclearGame.gameScreen.xValues.clear();
+            nuclearGame.gameScreen.yValues.clear();
+            nuclearGame.gameScreen.ui.closeToFail.setCurrentValue(0);
+            nuclearGame.gameScreen.ui.fatigue.setCurrentValue(0);
+            nuclearGame.gameScreen.ui.batteryCharge.setCurrentValue(0);
+            nuclearGame.gameScreen.ui.battery.setState((byte) 1);
+            nuclearGame.gameScreen.ui.SPOT.setState((byte) 0);
         }
     };
     ClickListener exitClickedListener = new ClickListener() {
