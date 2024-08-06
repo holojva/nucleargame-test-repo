@@ -232,6 +232,16 @@ public class GameScreen extends BaseScreen{
         }
         if (loos) {
             nuclearGame.setScreen(nuclearGame.loseScreen);
+            nuclearGame.gameScreen.ui.kernels.setValue(0f);
+            nuclearGame.gameScreen.ui.speedControl.spinnerImage.setRotation(180);
+            nuclearGame.gameScreen.ui.generatedPower.setCurrentValue(0);
+            nuclearGame.gameScreen.xValues.clear();
+            nuclearGame.gameScreen.yValues.clear();
+            nuclearGame.gameScreen.ui.closeToFail.setCurrentValue(0);
+            nuclearGame.gameScreen.ui.fatigue.setCurrentValue(0);
+            nuclearGame.gameScreen.ui.batteryCharge.setCurrentValue(0);
+            nuclearGame.gameScreen.ui.battery.setState((byte) 1);
+            nuclearGame.gameScreen.ui.SPOT.setState((byte) 0);
         }
 
         if (ui.fatigue.getCurrentValue() < 0.7) {
